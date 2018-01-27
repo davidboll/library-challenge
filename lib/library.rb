@@ -25,13 +25,16 @@ class Library
   end
 
   def search_books(search_word, available)
+    results = []
     search_result = @books.select { |items| items[:item][:title].include? search_word  }
     search_result.each do |book|
       if available == book[:available]
-        puts "Book: #{book}"
+      #puts "Book: #{book}"
+      results << book
       elsif available == 'All'
-        puts "Book: #{book}"
+      results << book
       end
+      puts results
     end
   end
 
